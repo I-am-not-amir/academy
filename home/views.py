@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse  
+from django.shortcuts import render
 
 courses = [  
     {  
@@ -33,11 +33,6 @@ courses = [
     }  
 ]  
 
-def search_courses(request):  
-    filter_name = request.GET.get('name', '') 
-    filtered_courses = [course for course in courses if filter_name.lower() in course['title'].lower()]
 
-    if filtered_courses:  
-        return render(request, 'courses_list/list.html', {'courses': filtered_courses})  
-    else:  
-        return HttpResponse(f"هیچ دوره‌ای با عنوان '{filter_name}' یافت نشد.")
+def courses_list(request):  
+    return render(request, 'home/list.html', {'courses': courses})  
