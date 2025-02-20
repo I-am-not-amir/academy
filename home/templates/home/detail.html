@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html lang="fa">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>جزئیات دوره - {{ course.title }}</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">  
+    <style>  
+        body {  
+            background-color: #f8f9fa;  
+        }  
+        .course-detail {  
+            margin-top: 50px;  
+        }  
+        .card {  
+            border-radius: 15px;  
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+            min-height: 500px;  
+        }  
+        .card-title {  
+            color: #007bff;  
+        }  
+        .img-fluid {  
+            border-radius: 15px;  
+            margin-bottom: 20px;  
+        }  
+        h1 {  
+            margin-bottom: 30px;  
+            color: #343a40;  
+        }  
+        .text-center {  
+            text-align: center;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container course-detail d-flex justify-content-center">  
+        <div class="col-md-8">  
+            <h1 class="text-center">{{ course.title }}</h1>  
+            <img src="{{ course.image_url }}" alt="{{ course.title }}" class="img-fluid"> 
+            <div class="card">  
+                <div class="card-body text-center">  
+                    <h5 class="card-title">توضیحات:</h5>  
+                    <p class="card-text">{{ course.description }}</p>  
+                    <h5 class="card-title">تاریخ آغاز:</h5>  
+                    <p class="card-text">{{ course.start_date }}</p>  
+                    <h5 class="card-title">قیمت:</h5>  
+                    <p class="card-text">{{ course.price }} تومان</p>  
+
+                    <a href="{% url 'courses_list' %}" class="btn btn-primary">بازگشت به لیست دوره‌ها</a>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>  
+</body>  
+</html>
